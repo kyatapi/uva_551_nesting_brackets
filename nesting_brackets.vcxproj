@@ -119,6 +119,10 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="nesting_brackets.cpp" />
+    <ClCompile Include="test_cases.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="test_cases.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
