@@ -3,8 +3,8 @@
 
 using namespace std;
 
-extern int find_offending_brackets(const string&  line);
+extern unsigned int find_offending_brackets(const string&);
 
-TEST(Nesting_Brackets, HandleEmptyLine) {
-	ASSERT_EQ(-1, find_offending_brackets(""));
+TEST(FindOffendingBrackets, HandleEmptyLine) {
+	ASSERT_EQ(0, find_offending_brackets(""));
 }

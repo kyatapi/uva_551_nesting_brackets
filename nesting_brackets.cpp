@@ -9,8 +9,8 @@ inline void run_test(int argc, char **argv) {}
 
 using namespace std;
 
-int find_offending_brackets(const string&  line) {
-	return -1;
+unsigned int find_offending_brackets(const string&  line) {
+	return 0;
 }
 
 int main(int argc, char **argv) {
