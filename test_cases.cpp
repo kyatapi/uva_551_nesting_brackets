@@ -11,6 +11,10 @@ TEST(FindOffendingBrackets, HandleEmptyLine) {
 	ASSERT_EQ(0, find_offending_brackets(""));
 }
 
+TEST(FindOffendingBrackets, HandleOnlyCloseBrackets) {
+	ASSERT_EQ(1, find_offending_brackets(")"));
+}
+
 //MatchOpenBrackets
 TEST(MatchOpenBrackets, HandleEmptyLine) {
 	ASSERT_EQ(-1, match_open_brackets("", 0));
