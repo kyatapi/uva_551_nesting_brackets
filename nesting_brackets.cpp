@@ -1,5 +1,5 @@
 #include <string>
-#include <queue>
+#include <vector>
 
 #ifndef ONLINE_JUDGE
 #include "test_cases.h"
