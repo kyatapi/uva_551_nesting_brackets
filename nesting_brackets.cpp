@@ -1,5 +1,6 @@
 #include <string>
 #include <vector>
+#include <iostream>
 
 #ifndef ONLINE_JUDGE
 #include "test_cases.h"
