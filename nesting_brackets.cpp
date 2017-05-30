@@ -39,35 +39,34 @@ int match_close_brackets(const string& line, const size_t start_from) {
 	return -1;
 }
 
-unsigned int find_offending_brackets(const string&  line) {
+unsigned int find_offending_brackets(const string&  expression) {
 	unsigned int count = 0;
 	size_t i = 0;
 	vector<unsigned int> unclosed_brackets;
-	while (i < line.length()) {
+	while (i < expression.length()) {
 		++count;
-		int bracket_index = match_close_brackets(line, i);
+		int bracket_index = match_close_brackets(expression, i);
 		if (bracket_index >= 0) {
 			if (unclosed_brackets.empty() || unclosed_brackets.back() != bracket_index) {
 				break;
 			}
-			else {
-				i += supported_brackets[bracket_index].second.length();
-				unclosed_brackets.pop_back();
-				continue;
-			}
+
+			i += supported_brackets[bracket_index].second.length();
+			unclosed_brackets.pop_back();
+			continue;
 		}
 
-		bracket_index = match_open_brackets(line, i);
+		bracket_index = match_open_brackets(expression, i);
 		if (bracket_index >= 0) {
 			i += supported_brackets[bracket_index].first.length();
 			unclosed_brackets.push_back(bracket_index);
+			continue;
 		}
-		else {
-			++i;
-		}
+
+		++i;
 	}
 
-	if (i == line.length()) {
+	if (i == expression.length()) {
 		if (unclosed_brackets.empty()) {
 			count = 0;
 		}
