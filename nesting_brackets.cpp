@@ -41,7 +41,7 @@ int match_close_brackets(const string& line, const size_t start_from) {
 unsigned int find_offending_brackets(const string&  line) {
 	unsigned int count = 0;
 	size_t i = 0;
-	queue<unsigned int> unclosed_brackets;
+	vector<unsigned int> unclosed_brackets;
 	while (i < line.length()) {
 		++count;
 		int bracket_index = match_close_brackets(line, i);
@@ -51,7 +51,7 @@ unsigned int find_offending_brackets(const string&  line) {
 			}
 			else {
 				i += supported_brackets[bracket_index].second.length();
-				unclosed_brackets.pop();
+				unclosed_brackets.pop_back();
 				continue;
 			}
 		}
@@ -59,7 +59,7 @@ unsigned int find_offending_brackets(const string&  line) {
 		bracket_index = match_open_brackets(line, i);
 		if (bracket_index >= 0) {
 			i += supported_brackets[bracket_index].first.length();
-			unclosed_brackets.push(bracket_index);
+			unclosed_brackets.push_back(bracket_index);
 		}
 		else {
 			++i;
@@ -81,7 +81,16 @@ unsigned int find_offending_brackets(const string&  line) {
 int main(int argc, char **argv) {
 	run_test(argc, argv);
 
-
+	string expression;
+	while (getline(cin, expression)) {
+		unsigned int expression_length = find_offending_brackets(expression);
+		if (expression_length > 0) {
+			cout << "NO " << expression_length << "\n";
+		}
+		else {
+			cout << "YES\n";
+		}
+	}
 
 	return 0;
 }

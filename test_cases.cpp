@@ -24,6 +24,7 @@ TEST(FindOffendingBrackets, HandleOnlyOpenBrackets) {
 TEST(FindOffendingBrackets, HandleMatchingBrackets) {
 	ASSERT_EQ(0, find_offending_brackets("()"));
 	ASSERT_EQ(0, find_offending_brackets("((()))"));
+	ASSERT_EQ(0, find_offending_brackets("(*a{ +}*)"));
 }
 
 
