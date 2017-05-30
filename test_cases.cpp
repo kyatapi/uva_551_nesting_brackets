@@ -13,6 +13,23 @@ TEST(FindOffendingBrackets, HandleEmptyLine) {
 
 TEST(FindOffendingBrackets, HandleOnlyCloseBrackets) {
 	ASSERT_EQ(1, find_offending_brackets(")"));
+	ASSERT_EQ(4, find_offending_brackets("111)"));
+}
+
+TEST(FindOffendingBrackets, HandleOnlyOpenBrackets) {
+	ASSERT_EQ(2, find_offending_brackets("("));
+	ASSERT_EQ(4, find_offending_brackets("((("));
+}
+
+TEST(FindOffendingBrackets, HandleMatchingBrackets) {
+	ASSERT_EQ(0, find_offending_brackets("()"));
+	ASSERT_EQ(0, find_offending_brackets("((()))"));
+}
+
+
+TEST(FindOffendingBrackets, HandleUnmatchingBrackets) {
+	ASSERT_EQ(2, find_offending_brackets("(}"));
+	ASSERT_EQ(5, find_offending_brackets("((()})"));
 }
 
 //MatchOpenBrackets
